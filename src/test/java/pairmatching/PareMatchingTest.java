@@ -35,12 +35,12 @@ public class PareMatchingTest {
 	@DisplayName("페어 매칭 실패 테스트")
 	@ParameterizedTest
 	@MethodSource("generateFailArgument")
-	private static void matchingCourseFailTest(List<String> argument) {
+	void matchingCourseFailTest(List<String> argument) {
 		Assertions.assertThatThrownBy(() -> new PareMatching(argument))
 				.isInstanceOf(IllegalArgumentException.class);
 	}
 
-	Stream<Arguments> generateFailArgument() {
+	private static Stream<Arguments> generateFailArgument() {
 		List<Arguments> arguments = new ArrayList<>();
 		arguments.add(Arguments.of(Arrays.asList("안드로이드", "레벨1", "로또")));
 		arguments.add(Arguments.of(Arrays.asList("백엔드", "레벨5", "성능개선")));

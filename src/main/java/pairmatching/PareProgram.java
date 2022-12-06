@@ -15,12 +15,9 @@ public class PareProgram {
 	private List<PareMatching> history = new ArrayList<>();
 
 	public void process() {
-
 		String choice = handleMenu();
 		handleChoice(choice);
 	}
-
-
 
 	private String handleMenu() {
 		try {
@@ -38,11 +35,11 @@ public class PareProgram {
 			OutputView.printMessage(Message.PROGRAM_INFO);
 			pareMatching();
 		} else if (choice.equals("2")) {
-			pareHistory();//
+			pareHistory();
 		} else if (choice.equals("3")) {
-			;//
+			initialize();
 		} else if (choice.equals("Q")) {
-			return;//
+			return;
 		}
 		process();
 	}
@@ -99,7 +96,11 @@ public class PareProgram {
 			OutputView.printError(error);
 			pareHistory();
 		}
+	}
 
+	private void initialize() {
+		history = new ArrayList<>();
+		OutputView.printMessage(Message.INITIALIZE_MSG);
 	}
 
 }
