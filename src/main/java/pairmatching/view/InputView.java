@@ -13,7 +13,7 @@ public class InputView {
 	}
 
 	public static String inputPareMatching() {
-		System.out.println(Message.PROGRAM_INFO.getMsg());
+		System.out.println(Message.PROGRAM_INPUT_MSG.getMsg());
 		String input = Console.readLine();
 		isValidate(input);
 		return input;

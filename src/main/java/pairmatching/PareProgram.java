@@ -29,14 +29,16 @@ public class PareProgram {
 
 	private void handleChoice(String choice) {
 		if (choice.equals("1")) {
+			OutputView.printMessage(Message.PROGRAM_INFO);
 			pareMatching();//
 		} else if (choice.equals("2")) {
 			;//
 		} else if (choice.equals("3")) {
 			;//
 		} else if (choice.equals("Q")) {
-			;//
+			return;//
 		}
+		process();
 	}
 
 	private void pareMatching() {
