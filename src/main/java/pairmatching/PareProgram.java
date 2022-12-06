@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PareProgram {
-	List<PareMatching> pares = new ArrayList<>();
+	List<PareMatching> history = new ArrayList<>();
 
 	public void process() {
 		String choice = handleMenu();
@@ -43,10 +43,26 @@ public class PareProgram {
 		try {
 			String input = InputView.inputPareMatching();
 			PareMatching pareMatching = new PareMatching(Util.getSplitList(input, ", "));
+			if (HaveHistory(pareMatching) && isRematch()){
+				pareMatching();
+				return;
+			}
+			history.add(pareMatching);
 		} catch (Exception error) {
 			OutputView.printError(error);
 			pareMatching();
 		}
+	}
+
+	private boolean HaveHistory(PareMatching pareMatching) {
+		int count = (int) history.stream()
+				.filter(pare -> pare.isSame(pareMatching))
+				.count();
+		return count > 0;
+	}
+
+	private boolean isRematch() {
+		return InputView.inputRematch().equals("아니오");
 	}
 
 
