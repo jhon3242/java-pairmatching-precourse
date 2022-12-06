@@ -9,5 +9,8 @@ public class PareMatching {
 
 	public PareMatching(List<String> input) {
 		course = Course.findByName(input.get(0));
+		level = Level.findByName(input.get(1));
+		mission = Mission.findByLevelAndName(level, input.get(2));
 	}
+
 }

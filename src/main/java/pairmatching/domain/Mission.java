@@ -15,4 +15,19 @@ public enum Mission {
 
 	private Level level;
 	private List<String> missions;
+
+	public Level getLevel() {
+		return level;
+	}
+
+	public List<String> getMissions() {
+		return missions;
+	}
+
+	public static Mission findByLevelAndName(Level level, String name) {
+		return Arrays.stream(values())
+				.filter(mission -> mission.getLevel().equals(level) && mission.getMissions().contains(name))
+				.findAny()
+				.orElseThrow(IllegalAccessError::new);
+	}
 }

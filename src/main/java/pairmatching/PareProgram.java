@@ -27,15 +27,15 @@ public class PareProgram {
 		}
 	}
 
-	private boolean handleChoice(String choice) {
+	private void handleChoice(String choice) {
 		if (choice.equals("1")) {
 			pareMatching();//
 		} else if (choice.equals("2")) {
-			//
+			;//
 		} else if (choice.equals("3")) {
-			//
+			;//
 		} else if (choice.equals("Q")) {
-			//
+			;//
 		}
 	}
 
